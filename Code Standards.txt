@@ -1,0 +1,33 @@
+CIS 206 - Assignment 2 Coding Standard 
+James Heinrichs
+Alana Heinrichs 
+Variables 
+Names to Avoid
+Never use the characters ‘l’ (lowercase letter el), ‘O’ (uppercase letter oh), or ‘I’ (uppercase letter eye) as single character variable names.
+In some fonts, these characters are indistinguishable from the numerals one and zero. When tempted to use ‘l’, use ‘L’ instead.
+ASCII Compatibility
+Identifiers used in the standard library must be ASCII compatible as described in the policy section of PEP 3131.
+Class Names
+Class names should normally use the CapWords convention.
+The naming convention for functions may be used instead in cases where the interface is documented and used primarily as a callable.
+Note that there is a separate convention for builtin names: most builtin names are single words (or two words run together), with the CapWords convention used only for exception names and builtin constants.
+Type Variable Names
+Names of type variables introduced in PEP 484 should normally use CapWords preferring short names: T, AnyStr, Num. It is recommended to add suffixes _co or _contra to the variables used to declare covariant or contravariant behavior correspondingly:
+Variables
+Globals variable should be in uppercase with underscores separating words, while locals variable should follow the same convention as functions. Demonstrating consistency in naming conventions enhances code readability and maintainability, contributing to a more robust and organized codebase.
+Function naming Standards:
+
+1. The Core Naming Case
+•	Use snake_case: Function names must be completely lowercase, with words separated by underscores to improve readability.
+•	Examples: calculate_total(), get_user_profile(), send_email().
+•	Avoid: camelCase (e.g., calculateTotal) or PascalCase (e.g., CalculateTotal), which are reserved for other code structures like classes. [1, 2, 3, 4, 5]
+2. Syntax Rules
+•	Must start with a letter or an underscore (_).
+•	Can only contain alphanumeric characters and underscores (a-z, 0-9, and _).
+•	Cannot start with a number.
+•	Are case-sensitive (calculate_sum() and Calculate_Sum() are treated as completely different functions). [1, 2]
+3. Using Prefixes for Scope (Access Modifiers)
+Python uses leading underscores to signal how a function or method is intended to be used:
+•	Public Functions: No underscore prefix (e.g., fetch_data()). Anyone can call this.
+•	Non-Public / Internal Functions: A single leading underscore (e.g., _internal_compute()). This tells other developers the function is intended for internal use within the module or class only.
+•	Name Mangling: A double leading underscore (e.g., __mangle_me()). This invokes Python's name mangling rules to prevent name clashes with subclasses.
