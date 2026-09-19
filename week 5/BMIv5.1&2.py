@@ -20,6 +20,31 @@ def report_process(bmi):
     else:
         return "within the normal range"
 
+# same math as bmi_process, but without printing (used by the chart)
+def bmi_new(weight, height):
+    bmi = (weight / height ** 2) * 703
+    bmi = round(bmi, 1)
+    return bmi
+
+# BMI table: heights 58-76 inches across the top, weights 100-250 lbs down the side
+def make_chart():
+    print("\nBMI Table")
+    print("Height in inches across the top, weight in pounds down the side")
+
+    # header row of heights
+    print("      ", end="")
+    for height in range(58, 77, 2):
+        print(f"{height:>7}", end="")
+    print()
+
+    # one row per weight
+    for weight in range(100, 251, 10):
+        print(f"{weight:>6}", end="")
+        for height in range(58, 77, 2):
+            print(f"{bmi_new(weight, height):>7}", end="")
+        print()
+    print()
+
 # keeps asking until the user types a valid number, or q to quit
 def get_number(prompt, number_type, allow_zero=False):
     while True:
@@ -81,5 +106,8 @@ while True:
     again = input()
     if again.lower() != "y":
         break
+
+# BMI table
+make_chart()
 
 print("Thank you for using James & Alana's BMI Calculator. Goodbye!")
